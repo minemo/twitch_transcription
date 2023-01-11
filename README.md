@@ -1,7 +1,7 @@
  # Twitch Transcriber
 
----
 ## FAQ:
+
 ### What is this?
 A relatively basic setup for transcribing Livestreams on Twitch using [OpenAI's Whisper](https://github.com/openai/whisper) and [Streamlink](https://github.com/streamlink/streamlink).
 
