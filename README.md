@@ -10,7 +10,7 @@ A relatively basic setup for transcribing Livestreams on Twitch using [OpenAI's 
 2. Install Streamlink with `pip install streamlink`
 3. Create a virtual environment
 4. ```pip install -r requirements.txt```
-5. ````python main.py````
+5. ````python main.py <twitch channel>````
 
 ### Why?
 Twitch doesn't have a built-in transcription feature, and I wanted to try out Whisper, so here we are. <br/>

@@ -3,6 +3,7 @@ from io import BytesIO
 import threading
 import whisper
 import time
+import argparse
 
 
 def pipe_stream_to_bytes(username: str, whispermodel: whisper.Whisper, text):
@@ -35,8 +36,8 @@ def log_text(alltext, n):
             alltext.clear()
 
 
-if __name__ == '__main__':
-    uname = 'gamesdonequick'
+def main(argv):
+    uname = argv.username
     print("Loading model...")
     model = whisper.load_model("base", 'cuda', in_memory=True)
     print("Done.")
@@ -48,3 +49,10 @@ if __name__ == '__main__':
     logger = threading.Thread(target=log_text, args=(transcribed, interval))
     transcriber.start()
     logger.start()
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Transcribe a Twitch stream semi-live.')
+    parser.add_argument('--username', type=str, default='gamesdonequick', help='Twitch channel to transcribe')
+    args = parser.parse_args()
+    main(args)
